@@ -5,10 +5,14 @@
 #tools {
   background: #f6f6f6;
   padding: 20px;
-  width: 300px;
+  width: 400px;
   position: fixed;
   top: 30px;
   right: 30px;
+}
+#code {
+  height: 300px;
+  overflow-y: auto;
 }
 </style>
 </head>
@@ -23,6 +27,55 @@
     <button id="split-enter">确定</button>
   </div>
   <div><button id="reset-btn">重置数据</button></div>
+
+  <h6>调用代码如下</h6>
+  <div id="code">
+  <pre>
+  const list2graph = new List2graph(canvas, list, {
+    range: [1, Infinity], // 值的区间
+    split: 2, // 区间分割点
+    width: 1200, // canvas 的宽度，高度是动态计算的
+    leftWidth: 120, // 左侧边栏的宽度
+    bottomHeight: 60, // 底部高度
+    maxLength: 20, // 最大长度
+    valueFormat(x) {
+      // 值格式化函数
+      return x;
+    },
+    nameFormat(x) {
+      // 名称格式化函数
+      return x;
+    },
+    tableSurplus: 10, // 表格左侧和底部露头的长度
+    tableBorderWidth: 1, // 表格边框接线宽度
+    animationMS: 1000, // 动态效果时长，单位毫秒
+    color: "#43e28b", // item以及连线的颜色
+    tableColor: "#363e63", // 表格颜色, 巧妙的利用表格颜色，可以做出表格不存在的效果
+    nameFont: "24px serif", // 左侧名称字体设定
+    rangeFont: "24px serif", // 底部区间显示的颜色
+    nameColor: "#7685bc", // 左侧name显示的颜色
+    rangeColor: "#7685bc", // 底部区间显示的颜色
+    valueColor: "#ffffff", // 值的显示颜色
+    padding: 10, // 文字内容和容器的内间距
+    font: "24px serif", // 图标文字大小以及字体设定
+    lineHeight: 60, // 每一个对象占用的行高
+    lineWidth: 4 // 连接线的宽度
+  });
+
+
+  // 新增数据
+  list2graph.add({ name: '名称', value: 3.56 });
+
+  // 设置分割点的值
+  list2graph.split(5);
+
+  // 重置数据
+  list2graph.reset([
+    { name: 'xx', value: 1.23 },
+    { name: 'xxx', value: 2.32 }
+  ]);
+  </pre>
+</div>
 </div>
 <script src="./demo.min.js"></script>
 </body>
