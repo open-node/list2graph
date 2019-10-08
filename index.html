@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>列表图形化呈现</title>
+<style>
+#tools {
+  background: #f6f6f6;
+  padding: 20px;
+  width: 300px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+}
+</style>
+</head>
+<body>
+<h3>列表的图形化</h3>
+<div><canvas id="myCanvas">您的浏览器不支持canvas! 请使用现代浏览器</canvas></div>
+<div id="tools">
+  <div><button id="add-item">新增一条</button></div>
+  <div>
+    <h6>区间风格点 </h6>
+    <input id="split-value" type="number" min="2" value="2"></input>
+    <button id="split-enter">确定</button>
+  </div>
+  <div><button id="reset-btn">重置数据</button></div>
+</div>
+<script src="./demo.min.js"></script>
+</body>
+</html>
